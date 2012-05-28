@@ -12,13 +12,14 @@ class l18n {
 	private static $language = 'en';
 	private static $country = 'GB';
 	private static $langcode = 'en_GB';
-	private static $path = '/lang';
-
+	private static $path = 'lang/';
 	public static $lines = array();
 
+	private static $log = 'true';  
 
-	public static function set_option($langcode){
-		$part = $explode('_', $langcode);
+	
+	public static function set_lang($langcode){
+		$part = explode('_', $langcode);
 		self::$language = $part[0];
 		self::$country = $part[1];
 		self::$langcode = $langcode;
@@ -32,18 +33,22 @@ class l18n {
 		return self::$language;
 	}
 
+	public static function get_langcode(){
+		return self::$langcode;
+	}
+
 	private static function path($section){
-		$path = self::$path.'/'.self::$langcode.'/'.$section.'.php';
+		$path = self::$path.self::$langcode.'/'.$section.'.php';
 		return $path;
 	}
 
 	private static function load($section){
-		if(!(file_exists(self::path($section)))){
-			return false;
-		}
-		else {
+		if(file_exists(self::path($section))){
 			self::$lines[self::$langcode][$section] = require(self::path($section));
 			return true;
+		}
+		else {
+			return false;
 		}
 	}
 
@@ -53,25 +58,24 @@ class l18n {
 		$line = $key_part[1];
 
 		if(isset(self::$lines[self::$langcode][$section][$line])){
-			return self::$lines[self::$langcode][$section][$line];
+			return self::$lines[self::$langcode][$section][$line];			
 		}
 		else {
-			if(!(self::load($section)) == false){
-				return self::$lines[self::$langcode][$section][$line];
+			if(self::load($section) == true){
+				return self::$lines[self::$langcode][$section][$line];	
 			}
 			else {
-				return $default;
-				if(self::$log == true){
-					$file = fopen("log.txt","a+");
-					$text = date().' '.self::$langcode.'-'.$key;
+				#Logging
+				if(self::$log == 'true'){
+					$file = fopen("l18n_log.txt","a+");
+					$text = date('d.m.Y H:i:s').' '.$_SERVER['REMOTE_ADDR'].' '.self::$langcode.'-'.$key;
 					fputs($file, $text."\n");
 					fclose($file); 
 				}
+				return $default;						
 			}
 		}
-
-	}
-	
+	}	
 }
 
 
@@ -81,5 +85,4 @@ function __($key, $default){
 	return l18n::line($key, $default);
 }
 
-var_dump(l18n::$lines);
 ?>
