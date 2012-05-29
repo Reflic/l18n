@@ -57,7 +57,7 @@ __('index.slogan', 'Sample Slogan'); //OUTPUT: The good system for localization.
 ```
 
 The best thing to unterstand how it works, is to analyse the example directory.
-If you habe any further question please contact me. (reflic[at]notesafe[dot]de)
+If you habe any further question please contact me. (*reflic[at]notesafe[dot]de*)
 Contributing
 -----
 If you have found any bugs or have ideas how to improve the class please create an issue or contact me: reflic[at]notesafe[dot]de
