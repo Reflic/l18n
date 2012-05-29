@@ -13,7 +13,7 @@ Download `l18n.php` and include it in your system.
 Create your language directory. It should be something like `lang` or `language` etc.
 Edit the path in 'l18n.php' on line 15, so l18n.php can find your language files.
 
-Each language get's his own subdirectory. Example: `lang/en_GB/` is for English (Great Britain) or `lang/de_D` is for Deutsch (Germany)
+Each language get's his own subdirectory. Example: `lang/en_GB/` is for English (Great Britain) or `lang/de_DE` is for Deutsch (Germany)
 
 If you want to activate logging of missing language files, you must set the variable $log to true. (Line 18)
 ```php
@@ -46,9 +46,9 @@ Now we will get our translations.
 First we should set our current language with the `set_lang()` function. 
 ```php  l18n::set_lang('en_GB');```
 
-Than we use the function `__($key, $default);` to get the translated strings, the first parameter is the key for our string. It is composed of two parts: `<section>.<key>`.
+Than we use the function `__($key, $default);` to get the translated strings, the first parameter is the key for our string. It is composed of two parts: `<section>.<key>`. The `<key>` is the key which we have defined in the language files.
 The second parameter should contain the default string, which will be shown when the translation file is missing.
-If you have activate logging of missing files (see Step 2), a .txt File will be created where you can find some infos regarding the missing language file.
+If you have activate logging of missing files (see Step 2), a .txt file will be created where you can find some infos regarding the missing language file.
 
 Example:
 ```php
