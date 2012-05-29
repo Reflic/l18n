@@ -1,5 +1,4 @@
 <?php
-
 return array(
 	'title' => 'Title',
 	'slogan' => 'The good system for localization.',
@@ -8,5 +7,4 @@ return array(
 	'no_rights' =>	'You have not the rights, that you need for visiting this page.'
 
 	);
-
 ?>

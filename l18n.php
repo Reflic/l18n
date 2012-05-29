@@ -15,7 +15,7 @@ class l18n {
 	private static $path = 'lang/';
 	public static $lines = array();
 
-	private static $log = 'true';  
+	private static $log = 'false';  
 
 	
 	public static function set_lang($langcode){

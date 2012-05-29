@@ -1,5 +1,5 @@
 <?php
-require_once('l18n.php'); #include the l18n class
+require_once('..\l18n.php'); #include the l18n class
 
 l18n::set_lang('en_GB'); #set the language to English (Great Britain)
 
