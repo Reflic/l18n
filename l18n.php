@@ -12,12 +12,13 @@ class l18n {
 	private static $language = 'en';
 	private static $country = 'GB';
 	private static $langcode = 'en_GB';
-	private static $path = 'lang/';
+	private static $path = 'template/lang/';
 	public static $lines = array();
 
-	private static $log = 'false';  
+	private static $log = true;  
+	private static $debug = false;
 
-	
+
 	public static function set_lang($langcode){
 		$part = explode('_', $langcode);
 		self::$language = $part[0];
@@ -58,11 +59,28 @@ class l18n {
 		$line = $key_part[1];
 
 		if(isset(self::$lines[self::$langcode][$section][$line])){
-			return self::$lines[self::$langcode][$section][$line];			
+			if(self::$debug){
+				return '[['.self::$lines[self::$langcode][$section][$line].']]';
+			}
+			else{
+				return self::$lines[self::$langcode][$section][$line];
+			}
+						
 		}
 		else {
 			if(self::load($section) == true){
-				return self::$lines[self::$langcode][$section][$line];	
+				if(isset(self::$lines[self::$langcode][$section][$line])){
+					if(self::$debug){
+						return '[['.self::$lines[self::$langcode][$section][$line].']]';
+					}
+					else{
+						return self::$lines[self::$langcode][$section][$line];
+					}		
+				}
+				else{
+					//After Load the key is not aviable
+					return $default;
+				}
 			}
 			else {
 				#Logging
