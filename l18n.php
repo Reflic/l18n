@@ -3,7 +3,7 @@
 * @name l18n
 * @description A small l18n class for easy localization.
 * @author Kevin (http://www.xn--fundstcke-im-netz-72b.de/)
-* @version 1.0
+* @version 1.1
 * @source https://github.com/Reflic/l18n
 */
 
@@ -12,13 +12,17 @@ class l18n {
 	private static $language = 'en';
 	private static $country = 'GB';
 	private static $langcode = 'en_GB';
-	private static $path = 'template/lang/';
+	private static $path = 'lang/';
 	public static $lines = array();
 
 	private static $log = true;  
 	private static $debug = false;
 
+	public static function set_path($path){
+		$this->path = $path;
+	}
 
+	
 	public static function set_lang($langcode){
 		$part = explode('_', $langcode);
 		self::$language = $part[0];
