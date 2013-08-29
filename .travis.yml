@@ -5,7 +5,7 @@ php:
 before_script: composer install --dev
 
 script: - mkdir -p build/logs
-  		- phpunit
+        - phpunit
 
 
 after_script: php vendor/bin/coveralls -v
