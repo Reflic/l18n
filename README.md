@@ -1,4 +1,7 @@
 l18n.php - PHP Localization System
+
+
+<a href='https://coveralls.io/r/Reflic/l18n'><img src='https://coveralls.io/repos/Reflic/l18n/badge.png' alt='Coverage Status' /></a>
 ==========
 l18n.php is a small (~2KB) PHP class which provide function for the easy localization of websites or webapps.  It uses .php files with arrays as language files and implements a buffer which reduce the HTTP requests. The language files are organised by sections which simplyfies the creation and maintenance.
 The class dosen't have any dependencies and is released under the [X11/MIT license](https://github.com/reflic/l18n/blob/master/license).
