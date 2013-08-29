@@ -71,3 +71,6 @@ License: X11/MIT see `LICENSE`
 
 ---
 If you find any mistakes in this manual please contact me. English is not my first language. Thank you.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Reflic/l18n/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
